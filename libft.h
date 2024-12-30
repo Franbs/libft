@@ -10,22 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#ifndef LIBFT_H
+# define LIBFT_H
 
-int	ft_isalnum(int c);
+# include <stddef.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-int	ft_isalpha(int c);
+int				ft_isalnum(int c);
 
-int	ft_isascii(int c);
+int				ft_isalpha(int c);
 
-int	ft_isdigit(int c);
+int				ft_isascii(int c);
 
-int	ft_isprint(int c);
+int				ft_isdigit(int c);
 
-int	ft_toupper(int c);
+int				ft_isprint(int c);
 
-int	ft_tolower(int c);
+int				ft_toupper(int c);
 
-int	strncmp(const char *s1, const char *s2, size_t n);
+int				ft_tolower(int c);
 
-size_t	ft_strlen(const char *str);
+int				strncmp(const char *s1, const char *s2, size_t n);
+
+size_t			ft_strlen(const char *str);
+
+char			*strchr(const char *s, int c);
+
+char			*strrchr(const char *str, int c);
+
+#endif
