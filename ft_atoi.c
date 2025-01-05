@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbanzo-s <fbanzo-s@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/27 21:07:51 by fbanzo-s          #+#    #+#             */
-/*   Updated: 2024/12/27 21:07:51 by fbanzo-s         ###   ########.fr       */
+/*   Created: 2025/01/05 03:22:19 by fbanzo-s          #+#    #+#             */
+/*   Updated: 2025/01/05 03:22:19 by fbanzo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
+	int	sign;
+	int	num;
 
+	if (!nptr)
+		return (0);
 	i = 0;
-	while (i < n && s1[i] && s2[i] && s1[i] == s2[i])
+	num = 0;
+	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\n'
+		|| nptr[i] == '\r' || nptr[i] == '\v' || nptr[i] == '\f')
 		i++;
-	return (s1[i] - s2[i]);
+	sign = 1;
+	while (nptr[i] == '+' || nptr == '-')
+	{
+		if (nptr[i] == '-')
+			sign = -sign;
+		i++;
+	}
+	while (nptr[i] && ft_isdigit(nptr[i]))
+	{
+		num = num * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (num * sign);
 }
