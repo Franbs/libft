@@ -49,6 +49,8 @@ char			*ft_strrchr(const char *str, int c);
 
 char			*ft_strnstr(const char *big, const char *little, size_t len);
 
+void			*ft_memset(void s[.n], int c, size_t n);
+
 void			*ft_calloc(size_t nmemb, size_t size);
 
 #endif
