@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {
@@ -18,20 +18,20 @@ int	ft_atoi(const char *nptr)
 	int	sign;
 	int	num;
 
-	if (!nptr)
-		return (0);
 	i = 0;
 	num = 0;
 	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\n'
 		|| nptr[i] == '\r' || nptr[i] == '\v' || nptr[i] == '\f')
 		i++;
 	sign = 1;
-	while (nptr[i] == '+' || nptr == '-')
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
-			sign = -sign;
+			sign = -1;
 		i++;
 	}
+	if (!ft_isdigit(nptr[i]))
+		return (0);
 	while (nptr[i] && ft_isdigit(nptr[i]))
 	{
 		num = num * 10 + (nptr[i] - '0');

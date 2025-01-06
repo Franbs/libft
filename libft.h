@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include <stdio.h>
 
 int				ft_isalnum(int c);
 
@@ -42,8 +43,12 @@ size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 
 char			*ft_strchr(const char *s, int c);
 
+char			*ft_strdup(const char *s);
+
 char			*ft_strrchr(const char *str, int c);
 
 char			*ft_strnstr(const char *big, const char *little, size_t len);
+
+void			*ft_calloc(size_t nmemb, size_t size);
 
 #endif
