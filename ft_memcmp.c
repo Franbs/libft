@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbanzo-s <fbanzo-s@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/05 14:55:14 by fbanzo-s          #+#    #+#             */
-/*   Updated: 2025/01/05 14:55:14 by fbanzo-s         ###   ########.fr       */
+/*   Created: 2025/01/11 18:36:26 by fbanzo-s          #+#    #+#             */
+/*   Updated: 2025/01/11 18:36:26 by fbanzo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	void			*ptr;
 	size_t			i;
-	unsigned char	*cptr;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	i = 0;
-	ptr = malloc(nmemb * size);
-	if (!ptr)
-		return (NULL);
-	cptr = (unsigned char *)ptr;
-	while (i < nmemb * size)
-	{
-		cptr[i] = 0;
+	while (i < n && str1[i] == str2[i])
 		i++;
-	}
-	return (ptr);
+	if (i < n)
+		return (str1[i] - str2[i]);
+	return (0);
 }
