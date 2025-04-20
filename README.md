@@ -35,6 +35,7 @@ To compile the library, simply run:
 
 ```bash
 make
+```
 
 ## 🛠️ Useful Makefile Commands
 
